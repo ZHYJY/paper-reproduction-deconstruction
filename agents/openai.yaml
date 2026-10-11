@@ -1,0 +1,4 @@
+interface:
+  display_name: "论文复现拆解"
+  short_description: "系统拆解论文并复现实验，输出报告与LaTeX演示文稿"
+  default_prompt: "Use $paper-reproduction-deconstruction to dissect the supplied paper, appendix, and code, reproduce its results, and produce an auditable report plus compiled LaTeX slides."

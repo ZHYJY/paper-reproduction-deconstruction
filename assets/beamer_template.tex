@@ -1,0 +1,53 @@
+\documentclass[aspectratio=169,11pt]{beamer}
+% 中文内容请在 XeLaTeX 下取消下一行注释（与 SKILL.md「中文优先 ctex」一致）。
+% 若使用 ctexbeamer 文档类，将第一行替换为 \documentclass[aspectratio=169,11pt]{ctexbeamer}。
+% \usepackage{ctex}
+\usetheme{Boadilla}
+\usecolortheme{dove}
+\usepackage{amsmath,amssymb,booktabs,graphicx,hyperref}
+% 复现材料使用具体日期，不用 \today，保证可审计性。
+\newcommand{\repodate}{YYYY-MM-DD}
+\newcommand{\status}[1]{\hfill\scriptsize\textcolor{gray}{#1}}
+\title{论文题目：拆解与复现}
+\author{复现者}
+\institute{期刊 / 会议，年份}
+\date{\repodate}
+\begin{document}
+\begin{frame}\titlepage\end{frame}
+\begin{frame}{研究问题与复现边界}
+  \begin{itemize}
+    \item 研究问题：替换为可检验的问题。
+    \item 核心主张：绑定正文位置与证据 ID。
+    \item 复现状态：exact / near / partial / failed（判据见报告 §0）。
+    \item 复现日期：\repodate{}；材料版本：inventory.json 的 SHA-256。
+  \end{itemize}
+  \status{证据：C01；运行：main_seed0}
+\end{frame}
+\begin{frame}{核心公式与实现}
+  \begin{align}
+    \mathcal{L}(\theta) &= \frac{1}{B}\sum_{i=1}^{B} \ell(f_\theta(x_i),y_i) + \lambda R(\theta),\\
+    \theta_{t+1} &= \operatorname{Update}(\theta_t,\nabla_\theta \mathcal{L}).
+  \end{align}
+  \begin{itemize}
+    \item 定义每个符号、形状、单位和求和范围。
+    \item 实现：`src/loss.py` 与配置键；说明等价或差异。
+  \end{itemize}
+\end{frame}
+\begin{frame}{结果对照}
+  \centering
+  % 将核验后的复现图或表格放在这里。
+  \fbox{\parbox{0.8\linewidth}{\centering 复现图/表占位：标注数据版本、误差条、重复次数和运行 ID。}}
+\end{frame}
+\begin{frame}{结论、限制与可复现清单}
+  \begin{itemize}
+    \item 已验证：列出主结果与容差。
+    \item 未验证/差异：列出证据与下一步。
+    \item 重放命令：引用 `repro_manifest.json` 与 `artifacts/repro_checklist.md`。
+  \end{itemize}
+\end{frame}
+% 如需参考文献帧，取消注释并确保 refs.bib 存在：
+% \begin{frame}[allowframebreaks]{参考文献}
+%   \bibliographystyle{unsrt}
+%   \bibliography{refs}
+% \end{frame}
+\end{document}
